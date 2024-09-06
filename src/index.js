@@ -7,7 +7,7 @@ const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
   // production
-  "docker.cloudflare-docker-proxy.2032382213.workers.dev": dockerHub,
+  "docker.powerhome.top": dockerHub,
   "quay.powerhome.top": "https://quay.io",
   "gcr.powerhome.top": "https://gcr.io",
   "k8s-gcr.powerhome.top": "https://k8s.gcr.io",
