@@ -14,6 +14,7 @@ TARGET_UPSTREAM = "https://registry-1.docker.io"
 name = "cloudflare-docker-proxy"
 routes = [
   { pattern = "docker-mirror.powerhome.top", custom_domain = true },
+  { pattern = "docker-hub.powerhome.top", custom_domain = true },
   { pattern = "quay.powerhome.top", custom_domain = true },
   { pattern = "gcr.powerhome.top", custom_domain = true },
   { pattern = "k8s-gcr.powerhome.top", custom_domain = true },
