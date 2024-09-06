@@ -7,17 +7,17 @@ const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
   // production
-  "docker.powerhome.top": dockerHub,
-  "quay.powerhome.top": "https://quay.io",
-  "gcr.powerhome.top": "https://gcr.io",
-  "k8s-gcr.powerhome.top": "https://k8s.gcr.io",
-  "k8s.powerhome.top": "https://registry.k8s.io",
-  "ghcr.powerhome.top": "https://ghcr.io",
-  "cloudsmith.powerhome.top": "https://docker.cloudsmith.io",
-  "ecr.powerhome.top": "https://public.ecr.aws",
+  "docker.cloudflare-docker-proxy.2032382213.workers.dev": dockerHub,
+  "quay.cloudflare-docker-proxy.2032382213.workers.dev": "https://quay.io",
+  "gcr.cloudflare-docker-proxy.2032382213.workers.dev": "https://gcr.io",
+  "k8s-gcr.cloudflare-docker-proxy.2032382213.workers.dev": "https://k8s.gcr.io",
+  "k8s.cloudflare-docker-proxy.2032382213.workers.dev": "https://registry.k8s.io",
+  "ghcr.cloudflare-docker-proxy.2032382213.workers.dev": "https://ghcr.io",
+  "cloudsmith.cloudflare-docker-proxy.2032382213.workers.dev": "https://docker.cloudsmith.io",
+  "ecr.cloudflare-docker-proxy.2032382213.workers.dev": "https://public.ecr.aws",
 
   // staging
-  "docker-staging.powerhome.top": dockerHub,
+  "docker-staging.cloudflare-docker-proxy.2032382213.workers.dev": dockerHub,
 };
 
 function routeByHosts(host) {

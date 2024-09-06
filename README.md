@@ -30,11 +30,11 @@
    - add more records and modify the config as you need
    ```javascript
    const routes = {
-     "docker.powerhome.top": "https://registry-1.docker.io",
-     "quay.powerhome.top": "https://quay.io",
-     "gcr.powerhome.top": "https://k8s.gcr.io",
-     "k8s-gcr.powerhome.top": "https://k8s.gcr.io",
-     "ghcr.powerhome.top": "https://ghcr.io",
+     "docker.cloudflare-docker-proxy.2032382213.workers.dev": "https://registry-1.docker.io",
+     "quay.cloudflare-docker-proxy.2032382213.workers.dev": "https://quay.io",
+     "gcr.cloudflare-docker-proxy.2032382213.workers.dev": "https://k8s.gcr.io",
+     "k8s-gcr.cloudflare-docker-proxy.2032382213.workers.dev": "https://k8s.gcr.io",
+     "ghcr.cloudflare-docker-proxy.2032382213.workers.dev": "https://ghcr.io",
    };
    ```
 

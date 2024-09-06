@@ -13,13 +13,13 @@ TARGET_UPSTREAM = "https://registry-1.docker.io"
 [env.production]
 name = "cloudflare-docker-proxy"
 # routes = [
-#   { pattern = "docker.powerhome.top", custom_domain = true },
-#   { pattern = "quay.powerhome.top", custom_domain = true },
-#   { pattern = "gcr.powerhome.top", custom_domain = true },
-#   { pattern = "k8s-gcr.powerhome.top", custom_domain = true },
-#   { pattern = "k8s.powerhome.top", custom_domain = true },
-#   { pattern = "ghcr.powerhome.top", custom_domain = true },
-#   { pattern = "cloudsmith.powerhome.top", custom_domain = true },
+#   { pattern = "docker.cloudflare-docker-proxy.2032382213.workers.dev", custom_domain = true },
+#   { pattern = "quay.cloudflare-docker-proxy.2032382213.workers.dev", custom_domain = true },
+#   { pattern = "gcr.cloudflare-docker-proxy.2032382213.workers.dev", custom_domain = true },
+#   { pattern = "k8s-gcr.cloudflare-docker-proxy.2032382213.workers.dev", custom_domain = true },
+#   { pattern = "k8s.cloudflare-docker-proxy.2032382213.workers.dev", custom_domain = true },
+#   { pattern = "ghcr.cloudflare-docker-proxy.2032382213.workers.dev", custom_domain = true },
+#   { pattern = "cloudsmith.cloudflare-docker-proxy.2032382213.workers.dev", custom_domain = true },
 # ]
 
 [env.production.vars]
@@ -28,7 +28,7 @@ TARGET_UPSTREAM = ""
 
 [env.staging]
 name = "cloudflare-docker-proxy-staging"
-# route = { pattern = "docker-staging.powerhome.top", custom_domain = true }
+# route = { pattern = "docker-staging.cloudflare-docker-proxy.2032382213.workers.dev", custom_domain = true }
 
 [env.staging.vars]
 MODE = "staging"
