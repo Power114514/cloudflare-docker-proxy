@@ -91,6 +91,8 @@ async function handleRequest(request) {
     }
     const authenticateStr = resp.headers.get("WWW-Authenticate");
     if (authenticateStr === null) {
+      authStr = authenticateStr
+      authStr = authStr.replace("https://auth.docker.io/token", "https://docker-auth.powerhome.top").replace("registry.docker.io", "docker-mirror.powerhome.top")
       return resp;
     }
     const wwwAuthenticate = parseAuthenticate(authenticateStr);
