@@ -155,6 +155,5 @@ async function fetchToken(wwwAuthenticate, scope, authorization) {
   if (authorization) {
     headers.set("Authorization", authorization);
   }
-  return new Response("1");
   return await fetch(url, { method: "GET", headers: headers });
 }
