@@ -76,6 +76,9 @@ async function handleRequest(request) {
         headers: headers,
       });
     } else {
+      authStr = resp.headers.get("WWW-Authenticate")
+      authStr = authStr.replaceAll("https://auth.docker.io/token", "https://docker-auth.powerhome.top").replaceAll("registry.docker.io", "docker-mirror.powerhome.top")
+      resp.headers.set("WWW-Authenticate", authStr)
       return resp;
     }
   }
