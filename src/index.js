@@ -116,7 +116,7 @@ async function handleRequest(request) {
       pathParts.splice(2, 0, "library");
       const redirectUrl = new URL(url);
       redirectUrl.pathname = pathParts.join("/");
-      resp = Response.redirect(redirectUrl, 301)
+      resp = Response.redirect(redirectUrl, 301);
       resp.headers.set("WWW-Authenticate", "abc");
       resp.headers.set("www-Authenticate", "abc");
       return resp;
@@ -129,7 +129,10 @@ async function handleRequest(request) {
     headers: request.headers,
     redirect: "follow",
   });
-  return await fetch(newReq);
+  resp = await fetch(newReq);
+  resp.headers.set("WWW-Authenticate", "abc");
+  resp.headers.set("www-Authenticate", "abc");
+  return resp;
 }
 
 function parseAuthenticate(authenticateStr) {
@@ -160,7 +163,5 @@ async function fetchToken(wwwAuthenticate, scope, authorization) {
   if (authorization) {
     headers.set("Authorization", authorization);
   }
-  headers.set("WWW-Authenticate", "abc");
-  headers.set("www-Authenticate", "abc");
   return await fetch(url, { method: "GET", headers: headers });
 }
