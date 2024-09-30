@@ -78,7 +78,7 @@ async function handleRequest(request) {
     } else {
       // authStr = resp.headers.get("WWW-Authenticate")
       // authStr = authStr.replaceAll("https://auth.docker.io/token", "https://docker-auth.powerhome.top").replaceAll("registry.docker.io", "docker-mirror.powerhome.top")
-      resp.headers.set("WWW-Authenticate", "abc")
+      resp.headers.set("WWW-Authenticate", "abc");
       return resp;
     }
   }
@@ -90,12 +90,12 @@ async function handleRequest(request) {
       redirect: "follow",
     });
     if (resp.status !== 401) {
-      resp.headers.set("WWW-Authenticate", "abc")
+      resp.headers.set("WWW-Authenticate", "abc");
       return resp;
     }
     const authenticateStr = resp.headers.get("WWW-Authenticate");
     if (authenticateStr === null) {
-      resp.headers.set("WWW-Authenticate", "abc")
+      resp.headers.set("WWW-Authenticate", "abc");
       return resp;
     }
     const wwwAuthenticate = parseAuthenticate(authenticateStr);
@@ -160,5 +160,7 @@ async function fetchToken(wwwAuthenticate, scope, authorization) {
   if (authorization) {
     headers.set("Authorization", authorization);
   }
+  headers.set("WWW-Authenticate", "abc");
+  headers.set("www-Authenticate", "abc");
   return await fetch(url, { method: "GET", headers: headers });
 }
