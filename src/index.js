@@ -9,6 +9,7 @@ const routes = {
   // production
   "docker-mirror.powerhome.top": dockerHub,
   "docker-hub.powerhome.top": "https://hub.docker.com",
+  "docker-auth.powerhome.top": "https://auth.docker.io",
   "quay.powerhome.top": "https://quay.io",
   "gcr.powerhome.top": "https://gcr.io",
   "k8s-gcr.powerhome.top": "https://k8s.gcr.io",
@@ -16,7 +17,6 @@ const routes = {
   "ghcr.powerhome.top": "https://ghcr.io",
   "cloudsmith.powerhome.top": "https://docker.cloudsmith.io",
   "ecr.powerhome.top": "https://public.ecr.aws",
-  "docker-auth.powerhome.top": "https://auth.docker.io"
   
   // staging
   "docker-staging.powerhome.top": dockerHub,
