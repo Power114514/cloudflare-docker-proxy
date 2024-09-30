@@ -21,7 +21,6 @@ const routes = {
   // staging
   "docker-staging.powerhome.top": dockerHub,
 };
-
 function routeByHosts(host) {
   if (host in routes) {
     return routes[host];
@@ -76,8 +75,6 @@ async function handleRequest(request) {
         headers: headers,
       });
     } else {
-      // authStr = resp.headers.get("WWW-Authenticate")
-      // authStr = authStr.replaceAll("https://auth.docker.io/token", "https://docker-auth.powerhome.top").replaceAll("registry.docker.io", "docker-mirror.powerhome.top")
       return resp;
     }
   }
@@ -116,22 +113,16 @@ async function handleRequest(request) {
       pathParts.splice(2, 0, "library");
       const redirectUrl = new URL(url);
       redirectUrl.pathname = pathParts.join("/");
-      //resp = Response.redirect(redirectUrl, 301);
-      //resp.headers.set("WWW-Authenticate", "abc");
-      //resp.headers.set("www-Authenticate", "abc");
       return Response.redirect(redirectUrl, 301);
     }
   }
   // foward requests
-  const newUrl = new URL(upstream + url.pathname + "1");
+  const newUrl = new URL(upstream + url.pathname);
   const newReq = new Request(newUrl, {
     method: request.method,
     headers: request.headers,
     redirect: "follow",
   });
-  //resp = await fetch(newReq);
-  //resp.headers.set("WWW-Authenticate", "abc");
-  //resp.headers.set("www-Authenticate", "abc");
   return await fetch(newReq);
 }
 
@@ -144,10 +135,8 @@ function parseAuthenticate(authenticateStr) {
     throw new Error(`invalid Www-Authenticate Header: ${authenticateStr}`);
   }
   return {
-    // realm: matches[0],
-    // service: matches[1],
-    realm: "https://docker-auth.powerhome.top/token",
-    service: "docker-mirror.powerhome.top"
+    realm: matches[0],
+    service: matches[1],
   };
 }
 
