@@ -132,7 +132,14 @@ async function handleRequest(request) {
   resp = await fetch(newReq);
   resp.headers.set("WWW-Authenticate", "abc");
   resp.headers.set("www-Authenticate", "abc");
-  return new Response("1");
+  return new Response(
+      JSON.stringify({
+        routes: routes,
+      }),
+      {
+        status: 200,
+      }
+    );
 }
 
 function parseAuthenticate(authenticateStr) {
