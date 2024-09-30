@@ -91,9 +91,6 @@ async function handleRequest(request) {
     }
     const authenticateStr = resp.headers.get("WWW-Authenticate");
     if (authenticateStr === null) {
-      authStr = authenticateStr
-      authStr = authStr.replaceAll("https://auth.docker.io/token", "https://docker-auth.powerhome.top").replaceAll("registry.docker.io", "docker-mirror.powerhome.top")
-      resp.headers.set("WWW-Authenticate", authStr)
       return resp;
     }
     const wwwAuthenticate = parseAuthenticate(authenticateStr);
@@ -158,5 +155,6 @@ async function fetchToken(wwwAuthenticate, scope, authorization) {
   if (authorization) {
     headers.set("Authorization", authorization);
   }
+  return 1;
   return await fetch(url, { method: "GET", headers: headers });
 }
