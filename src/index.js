@@ -78,7 +78,6 @@ async function handleRequest(request) {
     } else {
       // authStr = resp.headers.get("WWW-Authenticate")
       // authStr = authStr.replaceAll("https://auth.docker.io/token", "https://docker-auth.powerhome.top").replaceAll("registry.docker.io", "docker-mirror.powerhome.top")
-      resp.headers.set("WWW-Authenticate", "abc");
       return resp;
     }
   }
@@ -90,12 +89,10 @@ async function handleRequest(request) {
       redirect: "follow",
     });
     if (resp.status !== 401) {
-      resp.headers.set("WWW-Authenticate", "abc");
       return resp;
     }
     const authenticateStr = resp.headers.get("WWW-Authenticate");
     if (authenticateStr === null) {
-      resp.headers.set("WWW-Authenticate", "abc");
       return resp;
     }
     const wwwAuthenticate = parseAuthenticate(authenticateStr);
@@ -119,7 +116,10 @@ async function handleRequest(request) {
       pathParts.splice(2, 0, "library");
       const redirectUrl = new URL(url);
       redirectUrl.pathname = pathParts.join("/");
-      return Response.redirect(redirectUrl, 301);
+      resp = Response.redirect(redirectUrl, 301)
+      resp.headers.set("WWW-Authenticate", "abc");
+      resp.headers.set("www-Authenticate", "abc");
+      return resp;
     }
   }
   // foward requests
