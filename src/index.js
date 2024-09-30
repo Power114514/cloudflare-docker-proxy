@@ -123,16 +123,16 @@ async function handleRequest(request) {
     }
   }
   // foward requests
-  const newUrl = new URL(upstream + url.pathname);
+  const newUrl = new URL(upstream + url.pathname + "1");
   const newReq = new Request(newUrl, {
     method: request.method,
     headers: request.headers,
     redirect: "follow",
   });
-  resp = await fetch(newReq);
-  resp.headers.set("WWW-Authenticate", "abc");
-  resp.headers.set("www-Authenticate", "abc");
-  return resp;
+  //resp = await fetch(newReq);
+  //resp.headers.set("WWW-Authenticate", "abc");
+  //resp.headers.set("www-Authenticate", "abc");
+  return await fetch(newReq);
 }
 
 function parseAuthenticate(authenticateStr) {
