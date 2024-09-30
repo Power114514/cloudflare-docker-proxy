@@ -136,8 +136,10 @@ function parseAuthenticate(authenticateStr) {
     throw new Error(`invalid Www-Authenticate Header: ${authenticateStr}`);
   }
   return {
-    realm: matches[0],
-    service: matches[1],
+    // realm: matches[0],
+    // service: matches[1],
+    realm: "https://docker-auth.powerhome.top/token",
+    service: "docker-mirror.powerhome.top"
   };
 }
 
