@@ -129,9 +129,9 @@ async function handleRequest(request) {
     headers: request.headers,
     redirect: "follow",
   });
-  resp = await fetch(newReq);
-  resp.headers.set("WWW-Authenticate", "abc");
-  resp.headers.set("www-Authenticate", "abc");
+  //resp = await fetch(newReq);
+  //resp.headers.set("WWW-Authenticate", "abc");
+  //resp.headers.set("www-Authenticate", "abc");
   return new Response(
       JSON.stringify({
         routes: routes,
