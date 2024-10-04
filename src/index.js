@@ -132,7 +132,7 @@ async function handleRequest(request) {
       headers.append(key, value)
     });
     // docker-mirror.powerhome.top
-    headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="registry-1.docker.io",${scope_str}`);
+    headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="registry.docker.io",${scope_str}`);
     return new Response(
       resp.body,
       {
@@ -155,7 +155,7 @@ function parseAuthenticate(authenticateStr) {
   }
   return {
     realm: "https://docker-auth.powerhome.top/token",
-    service: "docker-mirror.powerhome.top",
+    service: "registry.docker.io",
   };
 }
 
