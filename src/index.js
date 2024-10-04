@@ -131,8 +131,7 @@ async function handleRequest(request) {
     resp.headers.forEach((value, key) => {
       headers.append(key, value)
     });
-    // docker-mirror.powerhome.top
-    headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="registry.docker.io",${scope_str}`);
+    headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="docker-mirror.powerhome.top",${scope_str}`);
     return new Response(
       resp.body,
       {
@@ -154,8 +153,8 @@ function parseAuthenticate(authenticateStr) {
     throw new Error(`invalid Www-Authenticate Header: ${authenticateStr}`);
   }
   return {
-    realm: "https://docker-auth.powerhome.top/token",
-    service: "registry.docker.io",
+    realm: matches[0],
+    service: matches[1]
   };
 }
 
