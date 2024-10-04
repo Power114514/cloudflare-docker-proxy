@@ -123,7 +123,7 @@ async function handleRequest(request) {
     headers: request.headers,
     redirect: "follow",
   });
-  //return await fetch(newReq);
+  return await fetch(newReq);
 }
 
 function parseAuthenticate(authenticateStr) {
