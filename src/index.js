@@ -129,15 +129,15 @@ async function handleRequest(request) {
     const scope_str = auth.match(/scope="[A-Za-z0-9_:/\\]+"/);
     const headers = new Headers();
     resp.headers.forEach((value, key) => {
-      headers.append(key., value)
+      headers.append(key, value)
     });
     headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="docker-mirror.powerhome.top,${scope_str}"`);
     return new Response(
       resp.body,
       {
-        resp.status,
-        resp.statusText,
-        headers
+        status: resp.status,
+        statusText: resp.statusText,
+        headers: headers
       }
     );
   }
