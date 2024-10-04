@@ -90,7 +90,7 @@ async function handleRequest(request) {
     }
     const authenticateStr = resp.headers.get("WWW-Authenticate");
     if (authenticateStr === null) {
-      //return resp;
+      return resp;
     }
     const wwwAuthenticate = parseAuthenticate(authenticateStr);
     let scope = url.searchParams.get("scope");
@@ -103,7 +103,7 @@ async function handleRequest(request) {
         scope = scopeParts.join(":");
       }
     }
-    //return await fetchToken(wwwAuthenticate, scope, authorization);
+    return await fetchToken(wwwAuthenticate, scope, authorization);
   }
   // redirect for DockerHub library images
   // Example: /v2/busybox/manifests/latest => /v2/library/busybox/manifests/latest
