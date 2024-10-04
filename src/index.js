@@ -113,7 +113,7 @@ async function handleRequest(request) {
       pathParts.splice(2, 0, "library");
       const redirectUrl = new URL(url);
       redirectUrl.pathname = pathParts.join("/");
-      //return Response.redirect(redirectUrl, 301);
+      return Response.redirect(redirectUrl, 301);
     }
   }
   // foward requests
@@ -123,7 +123,13 @@ async function handleRequest(request) {
     headers: request.headers,
     redirect: "follow",
   });
-  return await fetch(newReq);
+  const resp = await fetch(newReq);
+  if (resp.status == 401) {
+    const auth = resp.headers.get("www-authenticate");
+    const scope_str = auth.match(/scope="[A-Za-z0-9_:/\\]+"/);
+    resp.headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="docker-mirror.powerhome.top",${scope_str}`);
+  }
+  return resp;
 }
 
 function parseAuthenticate(authenticateStr) {
@@ -135,8 +141,8 @@ function parseAuthenticate(authenticateStr) {
     throw new Error(`invalid Www-Authenticate Header: ${authenticateStr}`);
   }
   return {
-    realm: matches[0],
-    service: matches[1],
+    realm: "https://docker-auth.powerhome.top/token",
+    service: "docker-mirror.powerhome.top",
   };
 }
 
