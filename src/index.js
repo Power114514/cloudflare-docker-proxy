@@ -131,7 +131,7 @@ async function handleRequest(request) {
     resp.headers.forEach((value, key) => {
       headers.append(key, value)
     });
-    headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="docker-mirror.powerhome.top,${scope_str}`);
+    headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="docker-mirror.powerhome.top",${scope_str}`);
     return new Response(
       resp.body,
       {
