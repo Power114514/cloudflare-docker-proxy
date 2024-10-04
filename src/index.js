@@ -124,7 +124,7 @@ async function handleRequest(request) {
     redirect: "follow",
   });
   const resp = await fetch(newReq);
-  if (resp.status === 4011) {
+  if (resp.status === 401) {
     const auth = resp.headers.get("www-authenticate");
     const scope_str = auth.match(/scope="[A-Za-z0-9_:/\\]+"/);
     const headers = new Headers();
