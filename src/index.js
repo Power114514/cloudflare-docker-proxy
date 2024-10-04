@@ -128,7 +128,7 @@ async function handleRequest(request) {
     const auth = resp.headers.get("www-authenticate");
     const scope_str = auth.match(/scope="[A-Za-z0-9_:/\\]+"/);
     // resp.headers.set("Www-Authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="docker-mirror.powerhome.top,${scope_str}"`);
-    resp.headers.append("abc", resp.headers)
+    resp.headers.append("abc", "1")
   }
   return resp;
 }
