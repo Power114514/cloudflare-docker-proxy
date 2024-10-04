@@ -124,11 +124,11 @@ async function handleRequest(request) {
     redirect: "follow",
   });
   const resp = await fetch(newReq);
-  if (resp.status == 401) {
-    const auth = resp.headers.get("www-authenticate");
-    const scope_str = auth.match(/scope="[A-Za-z0-9_:/\\]+"/);
-    resp.headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="docker-mirror.powerhome.top",${scope_str}`);
-  }
+  //if (resp.status == 401) {
+  //  const auth = resp.headers.get("www-authenticate");
+  //  const scope_str = auth.match(/scope="[A-Za-z0-9_:/\\]+"/);
+  //  resp.headers.set("www-authenticate", `Bearer realm="https://docker-auth.powerhome.top/token",service="docker-mirror.powerhome.top",${scope_str}`);
+  //}
   return resp;
 }
 
