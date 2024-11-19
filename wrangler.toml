@@ -21,7 +21,8 @@ routes = [
   { pattern = "k8s.powerhome.top", custom_domain = true },
   { pattern = "ghcr.powerhome.top", custom_domain = true },
   { pattern = "cloudsmith.powerhome.top", custom_domain = true },
-  { pattern = "docker-auth.powerhome.top", custom_domain = true }
+  { pattern = "docker-auth.powerhome.top", custom_domain = true },
+  { pattern = "18c.powerhome.top", custom_domain = true }
 ]
 
 [env.production.vars]
