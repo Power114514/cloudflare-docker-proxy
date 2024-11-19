@@ -17,6 +17,7 @@ const routes = {
   "ghcr.powerhome.top": "https://ghcr.io",
   "cloudsmith.powerhome.top": "https://docker.cloudsmith.io",
   "ecr.powerhome.top": "https://public.ecr.aws",
+  "18c.powerhome.top": "https://18comic.vip",
   
   // staging
   "docker-staging.powerhome.top": dockerHub,
